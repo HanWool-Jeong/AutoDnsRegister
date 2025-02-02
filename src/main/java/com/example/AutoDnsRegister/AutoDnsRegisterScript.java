@@ -21,7 +21,7 @@ public class AutoDnsRegisterScript {
     private static String previousIp, currentIp, cloudflareToken, zoneId;
     private static String clientId, clientSecret, googleRefreshToken, googleAccessToken;
 
-    private static String[] targetDnsRecords = {"hanwool.cc", "www.hanwool.cc"};
+    private static final String[] targetDnsRecords = {"hanwool.cc", "www.hanwool.cc"};
     private static ArrayList<JSONObject> targetDnsObject;
 
     private static void checkInternetAndIp() throws Exception {
@@ -41,7 +41,7 @@ public class AutoDnsRegisterScript {
         try {
             tokenJDBC = new TokenJDBC();
             cloudflareToken = tokenJDBC.getCloudflareToken();
-            String result = WebClient.create("https://api.cloudflare.com/client/v4/user/tokens/verify")
+            WebClient.create("https://api.cloudflare.com/client/v4/user/tokens/verify")
                     .get()
                     .header(HttpHeaders.AUTHORIZATION, "Bearer " + cloudflareToken)
                     .retrieve()
