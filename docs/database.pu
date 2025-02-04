@@ -1,0 +1,14 @@
+@startuml database
+
+  package AutoDns  {
+    entity Token {
+      id : INT <<PK>>
+      --
+      comment : TEXT (레코드 설명 ex. 'Cloudflare API Token')
+      value : TEXT (실제 토큰 등의 값 ex. 123asdf1414)
+      createdAt : TIMESTAMP
+      updatedAt : TIMESTAMP
+    }
+  }
+
+@enduml

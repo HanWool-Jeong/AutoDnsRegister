@@ -1,0 +1,20 @@
+@startuml AutoDnsRegisterApplication Spring boot Server
+  
+  autonumber
+
+  actor User
+  participant SpringServer
+  participant GoogleOAuth
+  database MariaDB
+
+  SpringServer -> User : give Google OAuth url
+  User -> GoogleOAuth : login
+  GoogleOAuth -> SpringServer: redirect
+  note left SpringServer : authorization_code
+  SpringServer -> GoogleOAuth : request tokens
+  GoogleOAuth -> SpringServer : give tokens
+  note left SpringServer : access_token\nrefresh_token
+  SpringServer -> MariaDB : save access_token and refresh_token
+
+  
+@enduml

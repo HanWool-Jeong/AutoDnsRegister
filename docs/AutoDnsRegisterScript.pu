@@ -1,0 +1,68 @@
+@startuml AutoDnsRegisterScript
+
+  autonumber
+
+  actor User
+  participant Server [
+    linux server
+    ----
+    java process
+  ]
+  database MariaDB
+  participant ifconfig.me
+  participant CloudflareAPI
+  participant GoogleOAuth
+  participant GmailAPI
+
+  User -> Server : linux server boot
+  Server -> Server : systemd execute\njava -jar AutoDnsRegisterScript.jar
+  Server -> ifconfig.me : check internet connection
+  ifconfig.me -> Server : give current IP
+
+  group Cloudflare (diff DNS records and current IP)
+    group get token
+      Server -> MariaDB : query Cloudflare API token
+      MariaDB -> Server : give token
+    end group
+
+    group verify token
+      Server -> CloudflareAPI : verify token
+      CloudflareAPI -> Server : verify
+    end group 
+
+    group get DNS Zone ID
+      Server -> CloudflareAPI : request DNS zone ID
+      CloudflareAPI -> Server : give zone ID
+    end group
+
+    group get DNS Records
+      Server -> CloudflareAPI : request DNS records of Zone ID
+      CloudflareAPI -> Server : give DNS records
+    end group
+  end group
+  
+  alt if current IP != IP of DNS Records
+
+    group Cloudflare (update DNS records)
+      Server -> CloudflareAPI : request updating DNS records
+    end group
+
+    group GoogleOAuth (access token refresh)
+      Server -> MariaDB : query Google refresh token
+      MariaDB -> Server : give refresh token
+      Server -> GoogleOAuth : request Google access token
+      GoogleOAuth -> Server : give access token
+      Server -> MariaDB : save access token
+    end group
+
+    group GmailAPI (alert user)
+      Server -> GmailAPI : request sending mail
+      GmailAPI -> User : send mail
+      note right User : Subject: IP Changed!\nprevious: 123.123.123.123\ncurrent: 234.234.234.234
+    end group
+
+  end alt
+
+  Server -> Server : systemd terminate script\nand log to journal
+
+@enduml
