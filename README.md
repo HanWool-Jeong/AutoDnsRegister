@@ -6,7 +6,8 @@
 ## 부팅 systemd unit
 리눅스 부팅 시 스크립트를 자동으로 실행하는 서비스 유닛.
 
-[systemd unit](docs/auto-dns-register.service)
+[systemd unit](docs/auto-dns-register.service)  
+[systemd unit timer](docs/auto-dns-register.timer)
 
 ## DB
 ![Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/HanWool-Jeong/AutoDnsRegister/main/docs/database.pu&index=0)
