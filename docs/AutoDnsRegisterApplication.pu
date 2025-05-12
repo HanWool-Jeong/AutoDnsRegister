@@ -1,20 +1,20 @@
-@startuml AutoDnsRegisterApplication Spring boot Server
+@startuml AutoDnsRegisterApplication
   
   autonumber
 
   actor User
-  participant SpringServer
-  participant GoogleOAuth
+  participant nodejs_express as server
+  participant GoogleOAuth as oauth
   database MariaDB
 
-  SpringServer -> User : give Google OAuth url
-  User -> GoogleOAuth : login
-  GoogleOAuth -> SpringServer: redirect
-  note left SpringServer : authorization_code
-  SpringServer -> GoogleOAuth : request tokens
-  GoogleOAuth -> SpringServer : give tokens
-  note left SpringServer : access_token\nrefresh_token
-  SpringServer -> MariaDB : save access_token and refresh_token
+  server -> User : give Google OAuth url
+  User -> oauth : login
+  oauth -> server: redirect
+  note left server : authorization_code
+  server -> oauth : request tokens
+  oauth -> server : give tokens
+  note left server : access_token\nrefresh_token
+  server -> MariaDB : save access_token and refresh_token
 
   
 @enduml

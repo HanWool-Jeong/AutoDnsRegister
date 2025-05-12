@@ -6,7 +6,7 @@
   participant Server [
     linux server
     ----
-    java process
+    nodejs process
   ]
   database MariaDB
   participant ifconfig.me
@@ -15,7 +15,7 @@
   participant GmailAPI
 
   User -> Server : linux server boot
-  Server -> Server : systemd execute\njava -jar AutoDnsRegisterScript.jar
+  Server -> Server : systemd execute\nnode AutoDnsRegister/main.js
   Server -> ifconfig.me : check internet connection
   ifconfig.me -> Server : give current IP
 
