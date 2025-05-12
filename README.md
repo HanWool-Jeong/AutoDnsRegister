@@ -16,8 +16,8 @@
 
 
 ## 흐름도
-### AutoDnsRegisterApplication.java (스프링 서버)
+### GoogleOAuth.js (GMail 발송 OAuth 로그인)
 ![Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/HanWool-Jeong/AutoDnsRegister/main/docs/AutoDnsRegisterApplication.pu)
 
-### AutoDnsRegisterScript.java (스크립트)
+### main.js (DNS 등록 스크립트)
 ![Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/HanWool-Jeong/AutoDnsRegister/main/docs/AutoDnsRegisterScript.pu)
