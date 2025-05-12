@@ -17,7 +17,7 @@
 
 ## 흐름도
 ### GoogleOAuth.js (GMail 발송 OAuth 로그인)
-![Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/HanWool-Jeong/AutoDnsRegister/main/docs/AutoDnsRegisterApplication.pu)
+![Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/HanWool-Jeong/AutoDnsRegister/main/docs/AutoDnsRegisterApplication.pu&index=0)
 
 ### main.js (DNS 등록 스크립트)
-![Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/HanWool-Jeong/AutoDnsRegister/main/docs/AutoDnsRegisterScript.pu)
+![Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/HanWool-Jeong/AutoDnsRegister/main/docs/AutoDnsRegisterScript.pu&index=5)
