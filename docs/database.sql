@@ -37,6 +37,15 @@ INSERT INTO `Token` (`id`, `comment`) VALUES
 	(4, 'Google app client id'),
 	(5, 'Google app client secret');
 
+  -- 테이블 AutoDns.Target 구조 내보내기
+CREATE TABLE IF NOT EXISTS `Target` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `record` text DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
