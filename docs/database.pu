@@ -9,6 +9,13 @@
       createdAt : TIMESTAMP
       updatedAt : TIMESTAMP
     }
+    entity Target {
+      id : INT <<PK>>
+      --
+      record : TEXT (타깃 클플 dns 레코드 ex. 'hanwool.com')
+      createdAt : TIMESTAMP
+      updatedAt : TIMESTAMP
+    }
   }
 
 @enduml
