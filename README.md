@@ -10,7 +10,7 @@
 [systemd unit timer](docs/auto-dns-register.timer)
 
 ## DB
-![Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/HanWool-Jeong/AutoDnsRegister/main/docs/database.pu&index=0)
+![Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/HanWool-Jeong/AutoDnsRegister/main/docs/database.pu&index=1)
 
 [DDL](docs/database.sql)
 
