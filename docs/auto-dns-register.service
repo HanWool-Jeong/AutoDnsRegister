@@ -1,10 +1,8 @@
 [Unit]
 Description=Cloudflare Auto DNS Register Script
-After=network-online.target mariadb.service
-Requires=network-online.target mariadb.service
+After=network-online.target mariadb.service home.mount
+Requires=network-online.target mariadb.service home.mount
 
 [Service]
-ExecStart=/usr/bin/java -jar /home/hanwool/AutoDnsRegister/AutoDnsRegisterScript.jar
-
-[Install]
-WantedBy=multi-user.target
+Type=oneshot
+ExecStart=/usr/bin/node /home/hanwool/AutoDnsRegister/main.js

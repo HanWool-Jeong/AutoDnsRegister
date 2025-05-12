@@ -1,0 +1,10 @@
+[Unit]
+Description=Run auto-dns-register.service every 2 hours
+Requires=home.mount
+
+[Timer]
+OnBootSec=0
+OnUnitActiveSec=2h
+
+[Install]
+WantedBy=timers.target
