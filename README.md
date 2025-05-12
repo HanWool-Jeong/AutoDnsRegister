@@ -12,7 +12,7 @@
 ## DB
 ![Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/HanWool-Jeong/AutoDnsRegister/main/docs/database.pu&index=0)
 
-[SQL](docs/database.sql)
+[DDL](docs/database.sql)
 
 
 ## 흐름도
